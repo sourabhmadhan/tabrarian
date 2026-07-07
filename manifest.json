@@ -1,0 +1,19 @@
+{
+  "manifest_version": 3,
+  "name": "Tabrarian — Auto Tab Grouper",
+  "version": "1.3.0",
+  "description": "The librarian for your tabs: auto-sorts them into named, colored groups by site, topic, or dev workflow. 100% local & private.",
+  "permissions": ["tabs", "tabGroups", "storage", "favicon", "alarms"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tabrarian"
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  }
+}
