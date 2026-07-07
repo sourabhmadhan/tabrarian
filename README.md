@@ -7,7 +7,7 @@ chaos. Nothing is ever closed automatically; tabs are only *organized*.
 ## Features
 
 - **One-click grouping** — sorts every tab in the window into Chrome's native
-  tab groups: Dev, AI, Video, Social, Shopping, News, Email, Work, Finance,
+  tab groups: Dev, AI, YouTube, Streaming, Social, Shopping, News, Email, Work, Finance,
   Learning, Music, Reading, Travel, Government (any `.gov` / `.gov.in` /
   `.gov.uk`-style domain; universities via `.edu` / `.ac.in` land in Learning).
 - **Path-aware splitting** — Google Docs, Sheets, Slides and Forms all live on
@@ -82,10 +82,10 @@ Works in any Chromium browser with tab-group support (Chrome, Edge, Brave).
 
 - **No network requests, ever.** Categorization, topic clustering, and even
   favicons (served from Chrome's local `_favicon` cache) are fully local.
-- **No data stored** beyond three settings flags in `chrome.storage.sync`;
+- **No data stored** beyond five settings flags in `chrome.storage.sync`;
   tab URLs/titles are read transiently and never persisted or transmitted.
-- **Minimal permissions**: `tabs`, `tabGroups`, `storage`, `favicon`. No host
-  permissions, no content scripts, no remote code, and no
+- **Minimal permissions**: `tabs`, `tabGroups`, `storage`, `favicon`,
+  `alarms`. No host permissions, no content scripts, no remote code, and no
   `externally_connectable` surface (web pages cannot message the extension).
 - All dynamic UI content is rendered with `textContent` — page-controlled
   strings (tab titles) cannot inject HTML.

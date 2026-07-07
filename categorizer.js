@@ -66,12 +66,30 @@ const CATEGORIES = [
     keywords: []
   },
   {
-    name: "Video",
-    color: "red",
+    // Before YouTube so music.youtube.com isn't swallowed by the
+    // youtube.com rule below.
+    name: "Music",
+    color: "purple",
     domains: [
-      "youtube.com", "youtu.be", "netflix.com", "primevideo.com",
-      "hotstar.com", "twitch.tv", "vimeo.com", "hulu.com",
-      "disneyplus.com", "jiocinema.com", "sonyliv.com"
+      "spotify.com", "open.spotify.com", "music.youtube.com",
+      "soundcloud.com", "music.apple.com", "gaana.com", "jiosaavn.com"
+    ],
+    keywords: []
+  },
+  {
+    // YouTube is its own world (tutorials, music, entertainment) and
+    // high-volume — never clubbed with passive streaming services.
+    name: "YouTube",
+    color: "red",
+    domains: ["youtube.com", "youtu.be"],
+    keywords: []
+  },
+  {
+    name: "Streaming",
+    color: "pink",
+    domains: [
+      "netflix.com", "primevideo.com", "hotstar.com", "twitch.tv",
+      "vimeo.com", "hulu.com", "disneyplus.com", "jiocinema.com", "sonyliv.com"
     ],
     keywords: ["watch", "episode", "trailer"]
   },
@@ -156,15 +174,6 @@ const CATEGORIES = [
       "edu", "ac.in", "ac.uk", "edu.au", "nptel.ac.in"
     ],
     keywords: ["tutorial", "how to", "course", "learn"]
-  },
-  {
-    name: "Music",
-    color: "purple",
-    domains: [
-      "spotify.com", "open.spotify.com", "music.youtube.com",
-      "soundcloud.com", "music.apple.com", "gaana.com", "jiosaavn.com"
-    ],
-    keywords: []
   },
   {
     name: "Reading",
