@@ -178,7 +178,8 @@ function makeGroupEl(name, color, groupTabs, existingGroups) {
   header.appendChild(title);
 
   const existing = Tabrarian.findMatchingGroup(name, existingGroups);
-  if (existing && existing.title) {
+  // Only hint when the names differ — "Other → joins "Other"" is noise.
+  if (existing && existing.title && existing.title !== name) {
     const hint = document.createElement("span");
     hint.className = "join-hint";
     hint.textContent = `→ “${existing.title}”`;
