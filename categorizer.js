@@ -332,6 +332,31 @@ function isLocalHostname(hostname) {
   return /^(10\.|192\.168\.|172\.(1[6-9]|2\d|3[01])\.)/.test(hostname);
 }
 
+// Search-engine results pages get their own "Searches" group and must skip
+// keyword matching — their titles are raw user queries, so a search for
+// "bitcoin price" would otherwise hit the Shopping "price" keyword.
+const SEARCHES_CATEGORY = { name: "Searches", color: "grey" };
+
+function isSearchPage(url) {
+  try {
+    const u = new URL(url);
+    const host = u.hostname.replace(/^www\./, "");
+    const hasQuery = u.searchParams.has("q") || u.searchParams.has("query");
+    if (/^google\.(com?\.)?[a-z]{2,3}$/.test(host)) {
+      return u.pathname === "/search" || u.pathname === "/webhp" || hasQuery;
+    }
+    if (host === "bing.com") return u.pathname === "/search" || hasQuery;
+    if (host === "duckduckgo.com") return hasQuery || u.pathname === "/";
+    if (host === "search.yahoo.com") return true;
+    if (host === "ecosia.org" || host === "startpage.com" || host === "search.brave.com") {
+      return u.pathname.startsWith("/search") || hasQuery;
+    }
+    return false;
+  } catch {
+    return false;
+  }
+}
+
 // Heuristic for blog posts / articles on sites we don't know: article-ish
 // path segments or a date in the path.
 function isArticleLike(url) {
@@ -374,6 +399,12 @@ function categorizeTab(tab) {
     if (cat.domains.some((d) => matchesDomain(hostname, d))) {
       return { name: cat.name, color: cat.color };
     }
+  }
+
+  // After domain rules (so news.google.com stays News) but before keyword
+  // matching (so a search query's words can't mis-route the tab).
+  if (isSearchPage(tab.url)) {
+    return { ...SEARCHES_CATEGORY };
   }
 
   // Hostname-label patterns catch self-hosted internal tools on any company

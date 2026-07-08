@@ -4,11 +4,24 @@ A Chrome extension that automatically aggregates your open tabs into named,
 colored tab groups by topic — so you can keep everything open without the
 chaos. Nothing is ever closed automatically; tabs are only *organized*.
 
+## Before → after
+
+One click on **Group tabs now**:
+
+![Before: a chaotic strip of 20+ loose tabs](store/screenshots/01-before-chaos.png)
+
+![After: the same tabs sorted into named, colored groups — Music, YouTube, Streaming, Work, Email, Searches, Shopping, Travel, Learning, AI, Social](store/screenshots/02-after-grouped.png)
+
+The popup previews every move before you commit — click a tab to jump to it,
+drag tabs between groups, or apply one group at a time:
+
+<img src="store/screenshots/03-popup-preview.png" alt="Popup preview showing YouTube, Learning and Searches groups with per-group Group buttons" width="640">
+
 ## Features
 
 - **One-click grouping** — sorts every tab in the window into Chrome's native
   tab groups: Dev, AI, YouTube, Streaming, Social, Shopping, News, Email, Work, Finance,
-  Learning, Music, Reading, Travel, Government (any `.gov` / `.gov.in` /
+  Learning, Music, Reading, Travel, Searches, Government (any `.gov` / `.gov.in` /
   `.gov.uk`-style domain; universities via `.edu` / `.ac.in` land in Learning).
 - **Path-aware splitting** — Google Docs, Sheets, Slides and Forms all live on
   `docs.google.com`, so the splitter reads the URL path: a window full of
